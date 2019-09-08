@@ -10,8 +10,9 @@ import { Todo } from 'src/app/model/todo.model';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
-  todo: Observable<Todo>;
   constructor(private route: ActivatedRoute) {}
-
-  ngOnInit() {}
+  index: string;
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => (this.index = params.get('index')));
+  }
 }

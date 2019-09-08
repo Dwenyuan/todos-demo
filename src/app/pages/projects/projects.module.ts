@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { ProjectsPage } from './projects.page';
+import { TodoListComponent } from 'src/app/components/todo-list/todo-list.component';
 
 const routes: Routes = [
   {

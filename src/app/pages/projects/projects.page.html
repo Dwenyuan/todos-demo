@@ -8,24 +8,20 @@
 </ion-header>
 
 <ion-content>
-  <ion-row>
-    <ion-col size="4">
-      <ion-nav-push>
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeLg="3" sizeMd="4" sizeSm="12" sizeXs="12">
         <ion-list>
-          <ion-item *ngFor="let item of collects">
-            <a [routerLink]="[ 'list', item ]">
-              <ion-icon slot="start" [name]="item.icon"></ion-icon>
-              <ion-label>{{item.title}}</ion-label>
-            </a>
+          <ion-item *ngFor="let item of collects; index as index" [routerLink]="['/projects/list/',index]">
+            <ion-icon slot="start" [name]="item.icon"></ion-icon>
+            <ion-label>{{item.title}}{{index}}</ion-label>
           </ion-item>
         </ion-list>
-      </ion-nav-push>
-    </ion-col>
-    <ion-col size="8">
-      <ion-router-outlet>
-      </ion-router-outlet>
-    </ion-col>
-  </ion-row>
-
-
+      </ion-col>
+      <ion-col sizeLg="9" sizeMd="8" sizeSm="12" sizeXs="12">
+        <ion-router-outlet>
+        </ion-router-outlet>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

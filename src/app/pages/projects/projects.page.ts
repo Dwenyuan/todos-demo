@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Collect } from 'src/app/model/collect.model';
 import { ProjectsService } from './projects.service';
-import { NavController } from '@ionic/angular';
+import { IonNav } from '@ionic/angular';
 import { TodoListComponent } from 'src/app/components/todo-list/todo-list.component';
 
 @Component({
@@ -10,11 +10,9 @@ import { TodoListComponent } from 'src/app/components/todo-list/todo-list.compon
   styleUrls: ['./projects.page.scss']
 })
 export class ProjectsPage implements OnInit {
-  constructor(
-    private projectsService: ProjectsService,
-    private navCtrl: NavController
-  ) {}
+  constructor(private projectsService: ProjectsService) {}
   collects: Collect[] = [];
+  @ViewChild(IonNav, { static: true }) ionNav: IonNav;
   ngOnInit() {
     this.collects = this.projectsService.getCollects();
   }
