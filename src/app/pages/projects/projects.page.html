@@ -12,7 +12,8 @@
     <ion-row>
       <ion-col sizeLg="3" sizeMd="4" sizeSm="12" sizeXs="12">
         <ion-list>
-          <ion-item *ngFor="let item of collects; index as index" [routerLink]="['/projects/list/',index]">
+          <ion-item [tabindex]="index" *ngFor="let item of collects; index as index"
+            [routerLink]="['/projects/list/',index]">
             <ion-icon slot="start" [name]="item.icon"></ion-icon>
             <ion-label>{{item.title}}{{index}}</ion-label>
           </ion-item>
