@@ -1,6 +1,5 @@
-ion-menu {
-  max-width: 200px;
-}
-.menu-inner {
-  max-width: 200px;
+ion-split-pane.split-pane-visible {
+  ion-menu {
+    max-width: 200px;
+  }
 }
