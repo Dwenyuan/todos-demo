@@ -1,3 +1,19 @@
-<p>
-  inbox works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      inbox
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row>
+    <ion-col size="3">
+      <ion-row *ngFor="let item of list">
+        <p>{{item.title}}</p>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-content>

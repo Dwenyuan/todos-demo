@@ -17,6 +17,11 @@ export class AppComponent {
       icon: 'inbox'
     },
     {
+      title: 'Projects',
+      url: '/projects',
+      icon: 'projects'
+    },
+    {
       title: 'Home',
       url: '/home',
       icon: 'home'

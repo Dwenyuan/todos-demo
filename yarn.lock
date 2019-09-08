@@ -356,6 +356,26 @@
     ionicons "^4.6.3"
     tslib "^1.10.0"
 
+"@ngrx/data@^8.3.0":
+  version "8.3.0"
+  resolved "https://registry.npm.taobao.org/@ngrx/data/download/@ngrx/data-8.3.0.tgz#f6fd11611b8663d3ab604e7e4d69373a49b58aae"
+  integrity sha1-9v0RYRuGY9OrYE5+TWk3Okm1iq4=
+
+"@ngrx/effects@^8.3.0":
+  version "8.3.0"
+  resolved "https://registry.npm.taobao.org/@ngrx/effects/download/@ngrx/effects-8.3.0.tgz#d99a777ab352d4efdf456a7dec307514187ba496"
+  integrity sha1-2Zp3erNS1O/fRWp97DB1FBh7pJY=
+
+"@ngrx/entity@^8.3.0":
+  version "8.3.0"
+  resolved "https://registry.npm.taobao.org/@ngrx/entity/download/@ngrx/entity-8.3.0.tgz#2b6b7b16022ff742acfbc2e94f005e77492d1072"
+  integrity sha1-K2t7FgIv90Ks+8LpTwBed0ktEHI=
+
+"@ngrx/store@^8.3.0":
+  version "8.3.0"
+  resolved "https://registry.npm.taobao.org/@ngrx/store/download/@ngrx/store-8.3.0.tgz#f2eaf428ec9e8379801cc37e3f6bffe88c2af472"
+  integrity sha1-8ur0KOyeg3mAHMN+P2v/6Iwq9HI=
+
 "@ngtools/webpack@8.1.3":
   version "8.1.3"
   resolved "https://registry.npm.taobao.org/@ngtools/webpack/download/@ngtools/webpack-8.1.3.tgz#9df049b14539109b60590a1ca64cbd80b6e49909"
@@ -442,6 +462,11 @@
   version "3.0.3"
   resolved "https://registry.npm.taobao.org/@types/minimatch/download/@types/minimatch-3.0.3.tgz?cache=0&sync_timestamp=1567533751003&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fminimatch%2Fdownload%2F%40types%2Fminimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
   integrity sha1-PcoOPzOyAPx9ETnAzZbBJoyt/Z0=
+
+"@types/mockjs@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.npm.taobao.org/@types/mockjs/download/@types/mockjs-1.0.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fmockjs%2Fdownload%2F%40types%2Fmockjs-1.0.2.tgz#89887151c9b903028e9b569a28b4ad079d79943b"
+  integrity sha1-iYhxUcm5AwKOm1aaKLStB515lDs=
 
 "@types/node@*":
   version "12.7.4"
@@ -1721,6 +1746,11 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   integrity sha1-w9RaizT9cwYxoRCoolIGgrMdWn8=
   dependencies:
     delayed-stream "~1.0.0"
+
+commander@*:
+  version "3.0.1"
+  resolved "https://registry.npm.taobao.org/commander/download/commander-3.0.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-3.0.1.tgz#4595aec3530525e671fb6f85fb173df8ff8bf57a"
+  integrity sha1-RZWuw1MFJeZx+2+F+xc9+P+L9Xo=
 
 commander@^2.11.0, commander@^2.12.1, commander@^2.20.0, commander@~2.20.0:
   version "2.20.0"
@@ -4581,6 +4611,13 @@ mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0:
   integrity sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
   dependencies:
     minimist "0.0.8"
+
+mockjs@^1.0.1-beta3:
+  version "1.0.1-beta3"
+  resolved "https://registry.npm.taobao.org/mockjs/download/mockjs-1.0.1-beta3.tgz#d234f3c27256397564f2c955142e891909537209"
+  integrity sha1-0jTzwnJWOXVk8slVFC6JGQlTcgk=
+  dependencies:
+    commander "*"
 
 move-concurrently@^1.0.1:
   version "1.0.1"
