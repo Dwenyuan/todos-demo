@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { Todo } from 'src/app/model/todo.model';
 
 @Component({
@@ -10,10 +10,23 @@ export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
 
   expand: boolean;
+
+  /**
+   * 组件有两种模式
+   * 1. 编辑模式，该模式下组件不能拖动
+   * 2. 查看模式，该模式下组件可以拖动，可以方便设置为其他item的子item
+   * @type {('edit' | 'view')}
+   * @memberof TodoItemComponent
+   */
+  mode: 'edit' | 'view' = 'edit';
   constructor() {}
 
+  ngOnInit() {}
   triggle() {
     this.expand = !this.expand;
   }
-  ngOnInit() {}
+  @HostListener('keyup')
+  onkeyup(event: KeyboardEvent) {
+    console.log(event);
+  }
 }
