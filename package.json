@@ -31,6 +31,8 @@
     "@types/lodash": "^4.14.138",
     "@types/mockjs": "^1.0.2",
     "cordova-android": "8.0.0",
+    "cordova-electron": "1.1.1",
+    "cordova-osx": "^5.0.0",
     "cordova-windows": "7.0.0",
     "core-js": "^2.5.4",
     "lodash": "^4.17.15",
@@ -82,7 +84,9 @@
     },
     "platforms": [
       "windows",
-      "android"
+      "android",
+      "electron",
+      "osx"
     ]
   }
 }
