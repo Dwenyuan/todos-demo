@@ -6,16 +6,22 @@ export const mockTags = mock({
     }
   ]
 }).list;
+
+function template(maxLevel: number, currentLevel: number = 1) {
+  return currentLevel > maxLevel
+    ? []
+    : [
+        {
+          title: '@cword(2,6) ' + currentLevel,
+          start: '@date(2019-09-dd HH:mm:ss)',
+          deadline: '@date(2019-09-dd HH:mm:ss)',
+          tags: mockTags,
+          'children|0-10': template(maxLevel, currentLevel + 1)
+        }
+      ];
+}
 export const mockTodos = mock({
-  'children|0-10': [
-    {
-      title: '@cword(2,6)',
-      start: '@date(2019-09-dd HH:mm:ss)',
-      deadline: '@date(2019-09-dd HH:mm:ss)',
-      tags: mockTags,
-      children: '@children'
-    }
-  ]
+  'children|0-10': template(3)
 }).children;
 export const mockCollects = mock({
   'list|5-10': [

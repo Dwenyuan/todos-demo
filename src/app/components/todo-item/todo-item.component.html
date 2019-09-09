@@ -1,3 +1,10 @@
-<p>
-  todo-item works!
-</p>
+<ion-item style="margin-left: 12px;">
+  <ion-input type="text" [value]="todo.title"></ion-input>
+  <ion-radio value="ford" slot="end"></ion-radio>
+  <ion-icon *ngIf="todo.children.length" (click)="triggle()" [name]="expand?'arrow-dropdown':'arrow-dropright'"
+    slot="start"></ion-icon>
+  <div *ngIf="!todo.children.length" slot="start"></div>
+</ion-item>
+<div style="padding-left: 24px;">
+  <app-todo-item [hidden]="!expand" *ngFor="let item of todo.children" [todo]="item"></app-todo-item>
+</div>

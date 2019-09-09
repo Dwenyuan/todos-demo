@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Collect } from 'src/app/model/collect.model'; 
+import { Collect } from 'src/app/model/collect.model';
 import { mockCollects } from 'src/mock/mock';
 
 @Injectable({
