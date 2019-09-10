@@ -10,6 +10,6 @@ export class ProjectsService {
 
   getCollects(): Collect[] {
     // TODO: 需要替换测试数据
-    return mockCollects;
+    return mockCollects.map(v => new Collect(v));
   }
 }

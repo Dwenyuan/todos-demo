@@ -9,6 +9,14 @@ import { isArray, isEmpty } from 'lodash';
  * @class Todo
  */
 export class Todo {
+  constructor({ title, start, deadline, tags, children }) {
+    this.title = title;
+    this.start = start;
+    this.deadline = deadline;
+    this.tags = tags;
+    this.children = children;
+  }
+
   /**
    * 清单名称
    * @since 0.0.1
@@ -31,7 +39,6 @@ export class Todo {
     }
     return this.done;
   }
-
   public set status(status: boolean) {
     //   如果有子任务那么就不能直接设置当前任务的状态
     if (!isEmpty(this.children)) {
@@ -58,12 +65,12 @@ export class Todo {
    * @type {Tag[]}
    * @memberof Todo
    */
-  tags: Tag[];
+  tags?: Tag[];
 
   /**
    * 任务还可以有子任务
-   * @since 0.0.1
-   * @type {Todo[]}
+   *
+   * @type {Itodo[]}
    * @memberof Todo
    */
   children?: Todo[];
@@ -78,5 +85,23 @@ export class Todo {
     const { children = [] } = this;
     const doneCount = children.filter(f => f.status).length;
     return ((doneCount / children.length) * 100).toFixed(0);
+  }
+
+  /**
+   * 循环反序列化
+   *
+   * @static
+   * @param {Todo} { title, start, deadline, tags = [], children = [] }
+   * @returns
+   * @memberof Todo
+   */
+  static create({ title, start, deadline, tags = [], children = [] }: Todo) {
+    return new Todo({
+      title,
+      start,
+      deadline,
+      tags: tags.map(({ name }) => new Tag({ name })),
+      children: children.map((v: Todo) => Todo.create(v))
+    });
   }
 }
