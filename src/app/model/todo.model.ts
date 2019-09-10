@@ -15,6 +15,19 @@ export class Todo {
     this.deadline = deadline;
     this.tags = tags;
     this.children = children;
+    console.count('new Todo');
+  }
+
+  /**
+   * 进度数据 由子任务的完成度计算得到
+   *
+   * @readonly
+   * @memberof Todo
+   */
+  get progress() {
+    const { children = [] } = this;
+    const doneCount = children.filter(f => f.getStatus()).length;
+    return ((doneCount / children.length) * 100).toFixed(0);
   }
 
   /**
@@ -32,19 +45,7 @@ export class Todo {
    * @memberof Todo
    */
   private done: boolean;
-  public get status() {
-    //   如果存在子任务，那么当前任务的完成状态由子任务的状态决定
-    if (isArray(this.children) && !isEmpty(this.children)) {
-      return this.children.every(e => e.status);
-    }
-    return this.done;
-  }
-  public set status(status: boolean) {
-    //   如果有子任务那么就不能直接设置当前任务的状态
-    if (!isEmpty(this.children)) {
-      this.done = status;
-    }
-  }
+
   /**
    * 开始时间
    * @since 0.0.1
@@ -74,19 +75,6 @@ export class Todo {
    * @memberof Todo
    */
   children?: Todo[];
-
-  /**
-   * 进度数据 由子任务的完成度计算得到
-   *
-   * @readonly
-   * @memberof Todo
-   */
-  get progress() {
-    const { children = [] } = this;
-    const doneCount = children.filter(f => f.status).length;
-    return ((doneCount / children.length) * 100).toFixed(0);
-  }
-
   /**
    * 循环反序列化
    *
@@ -103,5 +91,18 @@ export class Todo {
       tags: tags.map(({ name }) => new Tag({ name })),
       children: children.map((v: Todo) => Todo.create(v))
     });
+  }
+  public getStatus() {
+    //   如果存在子任务，那么当前任务的完成状态由子任务的状态决定
+    if (isArray(this.children) && !isEmpty(this.children)) {
+      return this.children.every(e => e.getStatus());
+    }
+    return this.done;
+  }
+  public setStatus(status: boolean) {
+    //   如果有子任务那么就不能直接设置当前任务的状态
+    if (isEmpty(this.children)) {
+      this.done = status;
+    }
   }
 }

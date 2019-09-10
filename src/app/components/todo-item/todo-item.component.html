@@ -3,8 +3,8 @@
     <ion-input *ngIf="mode==='edit'" type="text" required [(ngModel)]="todo.title" #name="ngModel" name="title">
     </ion-input>
     <ion-label *ngIf="mode==='view'">{{todo.title}}</ion-label>
-    <ion-checkbox value="ford" slot="end" [ngModel]="todo.status" (ngModelChange)="todo.status" #name="ngModel"
-      name="status"></ion-checkbox>
+    <ion-checkbox value="ford" slot="end" [ngModel]="todo.getStatus()" (ngModelChange)="todo.setStatus($event)"
+      #name="ngModel" name="status"></ion-checkbox>
     <ion-icon *ngIf="todo.children.length" (click)="triggle()" [name]="expand?'arrow-dropdown':'arrow-dropright'"
       slot="start"></ion-icon>
     <!-- <div *ngIf="!todo.children.length" slot="start"></div> -->

@@ -1,4 +1,5 @@
 import { mock } from 'mockjs';
+import { Collect } from 'src/app/model/collect.model';
 export const mockTags = mock({
   'list|4-12': [
     {
@@ -31,4 +32,4 @@ export const mockCollects = mock({
       todos: mockTodos
     }
   ]
-}).list;
+}).list.map(v => new Collect(v));

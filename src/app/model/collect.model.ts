@@ -9,15 +9,7 @@ import { Todo } from './todo.model';
  * @class Collect
  */
 export class Collect {
-  constructor({
-    title,
-    icon,
-    todos = []
-  }: {
-    title: string;
-    icon: string;
-    todos: Todo[];
-  }) {
+  constructor({ title, icon, todos = [] }: Collect) {
     this.title = title;
     this.icon = icon;
     this.todos = todos.map(todo => Todo.create(todo));
