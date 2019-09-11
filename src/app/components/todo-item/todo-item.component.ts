@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { Todo } from 'src/app/model/todo.model';
 import { FormBuilder, Validators } from '@angular/forms';
+import { KeyboradService } from 'src/app/services/keyborad.service';
+import { TodoItemService } from './todo-item.service';
 
 @Component({
   selector: 'app-todo-item',
@@ -8,7 +10,19 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./todo-item.component.scss']
 })
 export class TodoItemComponent implements OnInit {
+  constructor(
+    private keyboraService: KeyboradService,
+    private todoItemService: TodoItemService
+  ) {}
   @Input() todo: Todo;
+
+  /**
+   * 是否处于选中状态
+   *
+   * @type {boolean}
+   * @memberof TodoItemComponent
+   */
+  selected: boolean;
 
   /**
    * 任务树是否展开
@@ -16,7 +30,7 @@ export class TodoItemComponent implements OnInit {
    * @type {boolean}
    * @memberof TodoItemComponent
    */
-  expand: boolean;
+  expanded: boolean;
 
   /**
    * 组件有两种模式
@@ -27,8 +41,15 @@ export class TodoItemComponent implements OnInit {
    */
   mode: 'edit' | 'view' = 'edit';
 
-  ngOnInit() {}
-  triggle() {
-    this.expand = !this.expand;
+  ngOnInit() {
+    this.todoItemService.getEvents().subscribe(e => console.log(e));
+  }
+  triggle(e: KeyboardEvent) {
+    e.stopPropagation();
+    e.preventDefault();
+    this.expanded = !this.expanded;
+  }
+  select() {
+    this.selected = true;
   }
 }
